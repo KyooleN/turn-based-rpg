@@ -49,6 +49,12 @@ int main()
 {
     int optPlayer1, optPlayer2, flag;
 
+    Player *player1;
+    Player *player2;
+
+
+
+
     cout << "\n\nFala galera! Sejam bem-vindos ao KrystalZeep!\nBora pro fight?\nPlayer 1, escolha sua classe:\n";
     //inicio perguntas player 1
     do{
@@ -128,32 +134,43 @@ int main()
         
 
     if (optPlayer1 == 5) {
-        Animal *player1 = new Animal;
+        player1 = new Animal();
+
     } else if (optPlayer1 == 6) {
-        Troll *player1 = new Troll;
-    } else if (optPlayer1 == 7) {
-        Dragao *player1 = new Dragao;
-    } else if (optPlayer1 == 8) {
-        Zumbi *player1 = new Zumbi;
-    }
+         player1 = new Troll;
    
+    } else if (optPlayer1 == 7) {
+        player1 = new Dragao;
+  
+    } else if (optPlayer1 == 8) {
+         player1 = new Zumbi;
+   
+    }
+
+    cout << player1->exibeHP();
+
 
     //Player 2
     //mesmo esquema aqui tiago
     
 
-    if (optPlayer2 == 5) {
-        Animal *player2 = new Animal;
-    } else if (optPlayer2 == 6) {
-        Troll *player2 = new Troll;
-    } else if (optPlayer2 == 7) {
-        Dragao *player2 = new Dragao;
-    } else if (optPlayer2 == 8) {
-        Zumbi *player2 = new Zumbi;
-        player2->exibeHP();
+     if (optPlayer2 == 5) {
+        player2 = new Animal();
 
-      
+    } else if (optPlayer2 == 6) {
+         player2 = new Troll;
+   
+    } else if (optPlayer2 == 7) {
+        player2 = new Dragao;
+  
+    } else if (optPlayer2 == 8) {
+         player2 = new Zumbi;
+   
     }
+
+    cout << "\n" << player2->exibeHP();
+
+    
 
 
          

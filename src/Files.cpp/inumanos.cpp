@@ -3,6 +3,22 @@
 
 using namespace std;
 
-void  Zumbi::exibeHP() {
-cout << HP;
+int Player ::exibeHP() {
+    return 1;
+}
+
+int Animal::exibeHP() {
+    return HP;
+}
+
+int Troll::exibeHP() {
+    return HP;
+}
+
+int Dragao::exibeHP() {
+    return HP;
+}
+
+int Zumbi::exibeHP() {
+    return HP;
 }
