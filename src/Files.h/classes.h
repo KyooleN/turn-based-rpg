@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream:src/Files.h/inumanos.h
-class Inumanos 
-=======
-
-
 class Player { 
 //essa classe vai ter todas as habilidades do jogo
 //comece todas as funções com "virtual", pq dá p sobrescrever elas dps com "override" (olha a classe Animal em inumanos.h)
@@ -16,7 +11,6 @@ virtual int exibeHP();
 /*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*/
 
 class Inumanos : public Player
->>>>>>> Stashed changes:src/Files.h/classes.h
 {
     private:
     int manaForce = 20;
