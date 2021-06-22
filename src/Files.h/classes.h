@@ -1,12 +1,24 @@
-class Inumanos 
+
+
+class Player { 
+//essa classe vai ter todas as habilidades do jogo
+//comece todas as funções com "virtual", pq dá p sobrescrever elas dps com "override" (olha a classe Animal em inumanos.h)
+public:
+
+virtual int exibeHP();
+
+
+};
+
+class Inumanos : public Player
 {
     private:
     int manaForce = 20;
 
     public:
 
-    int healMana( int magicPoints);
-    int Bul_Khatos();
+    int healMana(int magicPoints);
+
 };
 
 class Animal : public Inumanos
@@ -22,6 +34,7 @@ class Animal : public Inumanos
     public:
     int magicBio( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP );
     int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
+    int exibeHP();
     
 
 
@@ -41,6 +54,7 @@ class Troll : public Inumanos
     int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
     int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
     int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
+    int exibeHP();
 
 
 };
@@ -59,6 +73,7 @@ class Dragao : public Inumanos
     public:
     int magicFireBreath( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
     int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
+    int exibeHP();
 
 };
 
@@ -78,7 +93,7 @@ class Zumbi : public Inumanos
     int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
     int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
     int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    void exibeHP();
+    int exibeHP();
 
 
 };
