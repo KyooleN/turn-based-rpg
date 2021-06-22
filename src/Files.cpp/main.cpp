@@ -1,7 +1,11 @@
 #include <iostream>
-#include "../Files.h/inumanos.h"
+#include "../Files.h/classes.h"
+
+
 using namespace std;
 
+//funções utilizaadas
+//Validar o input da classe ao escolher o personagem
 int validaClasse(int resposta) {
     if(resposta < 0 || resposta > 2) {
        cout<<"\nOpcao invalida. Escolha uma classe existente!\n";
@@ -14,6 +18,7 @@ int validaClasse(int resposta) {
      
 }
 
+//validar o input da classe humano
 int validaHumano(int resposta) {
     if(resposta < 0 || resposta > 4) {
         cout << "\nOpcao invalida. Escolha um personagem existente!\n";
@@ -23,6 +28,7 @@ int validaHumano(int resposta) {
     }
 }
 
+//validar o input da classe inumano
 int validaInumano(int resposta) {
     if(resposta < 5 || resposta > 8 && resposta != 0) {
         cout << "\nOpcao invalida. Escolha um personagem existente!\n";
@@ -32,10 +38,12 @@ int validaInumano(int resposta) {
     }
 }
 
+//exibir os personagens humanos no menu principal
 void exibeHumanos() {
     cout << "\nClasse de Humanos selecionada.\nEscolha seu Personagem!\n\n1 - Guerreiro\n2 - Ladrao\n3 - Mago\n4 - Paladino\n\n0 - Voltar\n\n>> ";
 }
 
+//exibir os personagens inumanos no menu principal
 void exibeInumanos() {
         cout << "\nClasse de Inumanos selecionada.\nEscolha seu Personagem!\n\n5 - Animal\n6 - Troll\n7 - Dragao\n8 - Zumbi\n\n0 - Voltar\n\n>> ";
 
@@ -51,6 +59,8 @@ int main()
 
     Player *player1;
     Player *player2;
+
+    
 
 
 
@@ -147,8 +157,6 @@ int main()
    
     }
 
-    cout << player1->exibeHP();
-
 
     //Player 2
     //mesmo esquema aqui tiago
@@ -167,14 +175,6 @@ int main()
          player2 = new Zumbi;
    
     }
-
-    cout << "\n" << player2->exibeHP();
-
-    
-
-
-         
-    
    
     
 }

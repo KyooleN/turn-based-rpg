@@ -1,11 +1,8 @@
 #include <iostream>
-#include "../Files.h/inumanos.h"
+#include "../Files.h/classes.h"
+
 
 using namespace std;
-
-int Player ::exibeHP() {
-    return 1;
-}
 
 int Animal::exibeHP() {
     return HP;
@@ -21,4 +18,8 @@ int Dragao::exibeHP() {
 
 int Zumbi::exibeHP() {
     return HP;
+}
+
+int Player::exibeHP() {
+    return 1;
 }
