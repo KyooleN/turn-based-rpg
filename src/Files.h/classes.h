@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream:src/Files.h/inumanos.h
-class Inumanos 
-=======
 
 
 class Player { 
@@ -9,95 +6,68 @@ class Player {
 public:
 
 virtual int exibeHP();
-
+virtual int exibeMP();
+int executaDanoFisico(int forcaFisica, int danoArma);
+int executaDanoMagico(int forcaMagia, int danoFeitico);
+int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+int chanceEsquiva (int agilidade);
 
 };
 
 /*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*/
 
-class Inumanos : public Player
->>>>>>> Stashed changes:src/Files.h/classes.h
-{
-    private:
-    int manaForce = 20;
-
-    public:
-
-    int healMana( int magicPoints);
-    int Bul_Khatos();
-};
-
-class Animal : public Inumanos
+class Animal : public Player
 {
     private:
     int HP = 3200;
     int MP = 30;
+    int manaForce = 20;
     int physDamage = 80;
     int physResist = 80;
     int manaResist = 20;
     int agility = 50; 
 
-    public:
-    int magicBio( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    
-
-
 };
 
-class Troll : public Inumanos
+class Troll : public Player
 {
     private:
     int HP = 2800;
     int MP = 20;
+    int manaForce = 20;
     int physDamage = 100;
     int physResist = 80;
     int manaResist = 20;
     int agility = 20; 
 
-    public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-
-
 };
 
-class Dragao : public Inumanos
+class Dragao : public Player
 {
 
     private:
     int HP = 3000;
     int MP = 40;
+    int manaForce = 20;
     int physDamage = 100;
     int physResist = 50;
     int manaResist = 50;
     int agility = 30; 
 
-    public:
-    int magicFireBreath( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-
 };
 
-class Zumbi : public Inumanos
+class Zumbi : public Player
 {
 
     private:
     int HP = 2500;
     int MP = 20;
+    int manaForce = 20;
     int physDamage = 40;
     int physResist = 40;
     int manaResist = 80;
     int agility = 50; 
-
-    public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    void exibeHP();
-
 
 };
 
@@ -114,14 +84,6 @@ private:
     int manaResist = 20;
     int agility = 20; 
 
-public:
-    Guerreiro(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyEspadaBarroca (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyPorrete (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
 };
 
 class Ladrao : public Player
@@ -135,17 +97,6 @@ private:
     int manaResist = 50;
     int agility = 80; 
 
-public:
-    Ladrao(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicIntoxication(int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyCajado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyPorrete (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyBesta (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyEsferaDeAtaque (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
 };
 
 class Mago : public Player
@@ -159,19 +110,6 @@ private:
     int manaResist = 80;
     int agility = 60; 
 
-public:
-    Mago(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicLifePotion (int *magicPoints, int *HP);
-    int magicBio (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicHeal (int *magicPoints, int *HP);
-    int magicFlamaGelada (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicIntoxication(int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-
-    int phyTridenteSagrado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyCajado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
 };
 
 class Paladino : public Player
@@ -185,14 +123,4 @@ private:
     int manaResist = 60;
     int agility = 60; 
 
-public:
-    Paladino(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicLifePotion (int *magicPoints, int *HP);
-    int magicFlamaGelada (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyTridenteSagrado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyphyBesta (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
 };
