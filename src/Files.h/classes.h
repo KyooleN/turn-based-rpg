@@ -3,15 +3,17 @@
 class Player { 
 //essa classe vai ter todas as habilidades do jogo
 //comece todas as funções com "virtual", pq dá p sobrescrever elas dps com "override" (olha a classe Animal em inumanos.h)
+
 public:
 
 virtual int exibeHP();
 virtual int exibeMP();
-int executaDanoFisico(int forcaFisica, int danoArma);
-int executaDanoMagico(int forcaMagia, int danoFeitico);
-int recebeDanoFisico(int danoTotal, int resistenciaFisica);
-int recebeDanoMagia(int danoTotal, int resistenciaMagia);
-int chanceEsquiva (int agilidade);
+virtual int executaDanoFisico(int forcaFisica, int danoArma);
+virtual int executaDanoMagico(int forcaMagia, int danoFeitico);
+virtual int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+virtual int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+virtual int chanceEsquiva (int agilidade);
+virtual void usarFeitico (int *magicPoints, int pontosRequeridos);
 
 };
 
@@ -28,6 +30,18 @@ class Animal : public Player
     int manaResist = 20;
     int agility = 50; 
 
+    public:
+
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Troll : public Player
@@ -40,6 +54,19 @@ class Troll : public Player
     int physResist = 80;
     int manaResist = 20;
     int agility = 20; 
+
+    public:
+
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 
 };
 
@@ -55,6 +82,18 @@ class Dragao : public Player
     int manaResist = 50;
     int agility = 30; 
 
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
+
 };
 
 class Zumbi : public Player
@@ -69,9 +108,20 @@ class Zumbi : public Player
     int manaResist = 80;
     int agility = 50; 
 
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
-/*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*/
+// /*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*/
 
 class Guerreiro : public Player
 {
@@ -83,6 +133,17 @@ private:
     int physResist = 80;
     int manaResist = 20;
     int agility = 20; 
+
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
 
 };
 
@@ -97,6 +158,17 @@ private:
     int manaResist = 50;
     int agility = 80; 
 
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Mago : public Player
@@ -110,17 +182,39 @@ private:
     int manaResist = 80;
     int agility = 60; 
 
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Paladino : public Player
 {
 private:
     int HP = 3200;
-    int MP = 80; // Provavelmente vamos ter que diminuir isso aqui
+    int MP = 80; 
     int physDamage = 60;
     int manaForce = 50;
     int physResist = 60;
     int manaResist = 60;
     int agility = 60; 
+
+    public:
+int exibeHP();
+ int exibeMP();
+ int executaDanoFisico(int forcaFisica, int danoArma);
+ int executaDanoMagico(int forcaMagia, int danoFeitico);
+ int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+ int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+ int chanceEsquiva (int agilidade);
+ void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
 
 };

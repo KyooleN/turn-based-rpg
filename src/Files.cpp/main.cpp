@@ -1,8 +1,15 @@
 #include <iostream>
 #include "../Files.h/classes.h"
+#include <cstdlib>
+#include <ctime>
 
 
 using namespace std;
+
+
+void iniciaRandom() {
+    srand(time(0));
+}
 
 //funções utilizaadas
 //Validar o input da classe ao escolher o personagem
@@ -17,6 +24,7 @@ int validaClasse(int resposta) {
     }
      
 }
+
 
 //validar o input da classe humano
 int validaHumano(int resposta) {
@@ -55,14 +63,12 @@ void exibeInumanos() {
 
 int main()
 {
+    iniciaRandom();
+
     int optPlayer1, optPlayer2, flag;
 
     Player *player1;
     Player *player2;
-
-    
-
-
 
 
     cout << "\n\nFala galera! Sejam bem-vindos ao KrystalZeep!\nBora pro fight?\nPlayer 1, escolha sua classe:\n";
@@ -143,8 +149,8 @@ int main()
    
         
 
-    if (optPlayer1 == 5) {
-        player1 = new Animal();
+   if (optPlayer1 == 5) {
+       player1 = new Animal();
 
     } else if (optPlayer1 == 6) {
          player1 = new Troll;
@@ -162,6 +168,8 @@ int main()
     //mesmo esquema aqui tiago
     
 
+    cout << player2->exibeHP();
+    
      if (optPlayer2 == 5) {
         player2 = new Animal();
 
@@ -175,6 +183,7 @@ int main()
          player2 = new Zumbi;
    
     }
+
    
     
 }
