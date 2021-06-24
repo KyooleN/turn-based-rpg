@@ -147,15 +147,16 @@ class Guerreiro : public Player
 
     int HP = 4000;
     int MP = 30;
-    int physDamage = 100;
     int manaForce = 20;
+    int physDamage = 100;
     int physResist = 80;
     int manaResist = 20;
     int agility = 20; 
 
     public:
 
-    int exibeHP();
+    Guerreiro(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
     int exibeMP();
     int executaDanoFisico(int forcaFisica, int danoArma);
     int executaDanoMagico(int forcaMagia, int danoFeitico);
@@ -173,15 +174,16 @@ class Ladrao : public Player
 
     int HP = 2800;
     int MP = 50;
-    int physDamage = 30;
     int manaForce = 30;
+    int physDamage = 30;
     int physResist = 40;
     int manaResist = 50;
     int agility = 80; 
 
     public:
 
-    int exibeHP();
+    Ladrao(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
     int exibeMP();
     int executaDanoFisico(int forcaFisica, int danoArma);
     int executaDanoMagico(int forcaMagia, int danoFeitico);
@@ -199,15 +201,16 @@ class Mago : public Player
 
     int HP = 2500;
     int MP = 100;
-    int physDamage = 40;
     int manaForce = 100;
+    int physDamage = 40;
     int physResist = 30;
     int manaResist = 80;
     int agility = 60; 
 
     public:
 
-    int exibeHP();
+    Mago(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
     int exibeMP();
     int executaDanoFisico(int forcaFisica, int danoArma);
     int executaDanoMagico(int forcaMagia, int danoFeitico);
@@ -224,16 +227,17 @@ class Paladino : public Player
     private:
 
     int HP = 3200;
-    int MP = 80; 
+    int MP = 80;
+    int manaForce = 50; 
     int physDamage = 60;
-    int manaForce = 50;
     int physResist = 60;
     int manaResist = 60;
     int agility = 60; 
 
     public:
 
-    int exibeHP();
+    Paladino(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
     int exibeMP();
     int executaDanoFisico(int forcaFisica, int danoArma);
     int executaDanoMagico(int forcaMagia, int danoFeitico);
