@@ -1,156 +1,150 @@
-class Inumanos 
-{
-    private:
-    int manaForce = 20;
+class Player{ 
+    //essa classe vai ter todas as habilidades do jogo
+    //comece todas as funções com "virtual", pq dá p sobrescrever elas dps com "override" (olha a classe Animal em inumanos.h)
+    protected:
+    int HP;
+    int MP;
+    int manaForce;
+    int physDamage;
+    int physResist;
+    int manaResist;
+    int agility;
 
     public:
 
-    int healMana( int magicPoints);
-    int Bul_Khatos();
-};
-
-class Animal : public Inumanos
-{
-    private:
-    int HP = 3200;
-    int MP = 30;
-    int physDamage = 80;
-    int physResist = 80;
-    int manaResist = 20;
-    int agility = 50; 
-
-    public:
-    int magicBio( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    
-
-
-};
-
-class Troll : public Inumanos
-{
-    private:
-    int HP = 2800;
-    int MP = 20;
-    int physDamage = 100;
-    int physResist = 80;
-    int manaResist = 20;
-    int agility = 20; 
-
-    public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-
-
-};
-
-class Dragao : public Inumanos
-{
-
-    private:
-    int HP = 3000;class Player { 
-//essa classe vai ter todas as habilidades do jogo
-//comece todas as funções com "virtual", pq dá p sobrescrever elas dps com "override" (olha a classe Animal em inumanos.h)
-public:
-
-virtual int exibeHP();
-
+    Player(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    virtual int exibeHP();
+    virtual int exibeMP();
+    virtual int executaDanoFisico(int forcaFisica, int danoArma);
+    virtual int executaDanoMagico(int forcaMagia, int danoFeitico);
+    virtual int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    virtual int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    virtual int chanceEsquiva (int agilidade);
+    virtual void usarFeitico (int *magicPoints, int pontosRequeridos);
+    virtual void imprimeStatus ();
 
 };
 
 /*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*CLASSE INUMANOS*/
 
-class Inumanos : public Player
+class Animal : public Player
 {
     private:
-    int manaForce = 20;
+
+        int HP = 3200;
+        int MP = 30;
+        int manaForce = 20;
+        int physDamage = 80;
+        int physResist = 80;
+        int manaResist = 20;
+        int agility = 50; 
 
     public:
 
-    int healMana( int magicPoints);
-    int Bul_Khatos();
-};
-
-class Animal : public Inumanos
-{
-    private:
-    int HP = 3200;
-    int MP = 30;
-    int physDamage = 80;
-    int physResist = 80;
-    int manaResist = 20;
-    int agility = 50; 
-
-    public:
-    int magicBio( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    
+        Animal(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+        //int exibeHP();
+        int exibeMP();
+        int executaDanoFisico(int forcaFisica, int danoArma);
+        int executaDanoMagico(int forcaMagia, int danoFeitico);
+        int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+        int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+        int chanceEsquiva (int agilidade);
+        void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+        //void imprimeStatus () override;
 
 
 };
 
-class Troll : public Inumanos
+class Troll : public Player
 {
     private:
+
     int HP = 2800;
     int MP = 20;
+    int manaForce = 20;
     int physDamage = 100;
     int physResist = 80;
     int manaResist = 20;
     int agility = 20; 
 
     public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
+
+    Troll(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+    //void imprimeStatus () override;
+
 
 
 };
 
-class Dragao : public Inumanos
+class Dragao : public Player
 {
 
     private:
+
     int HP = 3000;
     int MP = 40;
+    int manaForce = 20;
     int physDamage = 100;
     int physResist = 50;
     int manaResist = 50;
     int agility = 30; 
 
     public:
-    int magicFireBreath( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
+
+    Dragao (int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+    //void imprimeStatus () override;
 
 };
 
-class Zumbi : public Inumanos
+class Zumbi : public Player
 {
 
     private:
+
     int HP = 2500;
     int MP = 20;
+    int manaForce = 20;
     int physDamage = 40;
     int physResist = 40;
     int manaResist = 80;
     int agility = 50; 
 
     public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    void exibeHP();
 
-
+    Zumbi(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility);
+    //int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+    //void imprimeStatus () override;
 };
 
-/*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*/
+// /*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*CLASSE HUMANOS*/
 
 class Guerreiro : public Player
 {
-private:
+    private:
+
     int HP = 4000;
     int MP = 30;
     int physDamage = 100;
@@ -159,19 +153,24 @@ private:
     int manaResist = 20;
     int agility = 20; 
 
-public:
-    Guerreiro(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyEspadaBarroca (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyPorrete (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
+    public:
+
+    int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Ladrao : public Player
 {
-private:
+    private:
+
     int HP = 2800;
     int MP = 50;
     int physDamage = 30;
@@ -180,22 +179,24 @@ private:
     int manaResist = 50;
     int agility = 80; 
 
-public:
-    Ladrao(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicIntoxication(int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyCajado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyPorrete (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyBesta (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyEsferaDeAtaque (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
+    public:
+
+    int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Mago : public Player
 {
-private:
+    private:
+
     int HP = 2500;
     int MP = 100;
     int physDamage = 40;
@@ -204,72 +205,42 @@ private:
     int manaResist = 80;
     int agility = 60; 
 
-public:
-    Mago(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicLifePotion (int *magicPoints, int *HP);
-    int magicBio (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicHeal (int *magicPoints, int *HP);
-    int magicFlamaGelada (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicIntoxication(int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
+    public:
 
-    int phyTridenteSagrado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyCajado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
+    int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
+
+
 };
 
 class Paladino : public Player
 {
-private:
+    private:
+
     int HP = 3200;
-    int MP = 80; // Provavelmente vamos ter que diminuir isso aqui
+    int MP = 80; 
     int physDamage = 60;
     int manaForce = 50;
     int physResist = 60;
     int manaResist = 60;
     int agility = 60; 
 
-public:
-    Paladino(int HP, int MP, int physDamage, int manaForce, int physResist, int manaResist, int agility);
-    int magicLifePotion (int *magicPoints, int *HP);
-    int magicFlamaGelada (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    int magicStorm (int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP);
-    
-    int phyTridenteSagrado (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyphyBesta (int physicalDamage, int enemyPhysResist, int *enemyHP);
-    int phyVotoSoleneDeBulKathos(int physicalDamage, int enemyPhysResist, int *enemyHP);
-    //int healMana(int magicPoints);
-};
-    int MP = 40;
-    int physDamage = 100;
-    int physResist = 50;
-    int manaResist = 50;
-    int agility = 30; 
-
     public:
-    int magicFireBreath( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
 
-};
-
-class Zumbi : public Inumanos
-{
-
-    private:
-    int HP = 2500;
-    int MP = 20;
-    int physDamage = 40;
-    int physResist = 40;
-    int manaResist = 80;
-    int agility = 50; 
-
-    public:
-    int magicIntoxication( int *magicPoints, int magicForce, int enemyMagicDefense, int *enemyHP  );
-    int physGarrasLetais(int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physPorrete( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    int physCajado( int physicalDamage, int enemyPhysResist, int *enemyHP );
-    void exibeHP();
+    int exibeHP();
+    int exibeMP();
+    int executaDanoFisico(int forcaFisica, int danoArma);
+    int executaDanoMagico(int forcaMagia, int danoFeitico);
+    int recebeDanoFisico(int danoTotal, int resistenciaFisica);
+    int recebeDanoMagia(int danoTotal, int resistenciaMagia);
+    int chanceEsquiva (int agilidade);
+    void usarFeitico (int *magicPoints, int pontosRequeridos) override;
 
 
 };
