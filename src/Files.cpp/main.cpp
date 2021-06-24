@@ -125,6 +125,32 @@ int main()
 
     //Player 1
     //Atualiza aqui com suas classes e numeros tiago
+
+    //Humanos:
+
+    if (optPlayer1 == 1) {
+       player1 = new Guerreiro (4000, 30, 20, 100, 80, 20, 20);
+       cout << "\nStats Player 1: ";
+       player1->imprimeStatus();
+
+    } else if (optPlayer1 == 2) {
+        player1 = new Ladrao (2800, 50, 30, 30, 40, 50, 80);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
+   
+    } else if (optPlayer1 == 3) {
+        player1 = new Mago (2500, 100, 100, 40, 30, 80, 60);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
+  
+    } else if (optPlayer1 == 4) {
+        player1 = new Paladino (3200, 80, 50, 60, 60, 60, 60);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
+    }    
+
+    //Inumanos:
+
     if (optPlayer1 == 5) {
        player1 = new Animal (3200, 30, 20, 80, 80, 20, 50);
        cout << "\nStats Player 1: ";
@@ -150,8 +176,33 @@ int main()
     //Player 2
     //mesmo esquema aqui tiago
     //cout << player2->exibeHP();
+
+    //Humanos:
+
+    if (optPlayer2 == 1) {
+       player2 = new Guerreiro (4000, 30, 20, 100, 80, 20, 20);
+       cout << "\nStats Player 1: ";
+       player2->imprimeStatus();
+
+    } else if (optPlayer2 == 2) {
+        player2 = new Ladrao (2800, 50, 30, 30, 40, 50, 80);
+        cout << "\nStats Player 1: ";
+        player2->imprimeStatus();
+   
+    } else if (optPlayer2 == 3) {
+        player2 = new Mago (2500, 100, 100, 40, 30, 80, 60);
+        cout << "\nStats Player 1: ";
+        player2->imprimeStatus();
+  
+    } else if (optPlayer2 == 4) {
+        player2 = new Paladino (3200, 80, 50, 60, 60, 60, 60);
+        cout << "\nStats Player 1: ";
+        player2->imprimeStatus();
+    } 
     
-     if (optPlayer2 == 5) {
+    //Inumanos:
+    
+    if (optPlayer2 == 5) {
         player2 = new Animal(3200, 30, 20, 80, 80, 20, 50);
         cout << "\nStats Player 2: ";
         player2->imprimeStatus();
@@ -170,7 +221,6 @@ int main()
         player2 = new Zumbi (2500, 20, 20, 40, 40, 80, 50);
         cout << "\nStats Player 2: ";
         player2->imprimeStatus();
-
     }      
     
    
