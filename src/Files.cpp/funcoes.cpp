@@ -323,10 +323,14 @@ void Zumbi ::usarFeitico(int *magicPoints, int pontosRequeridos)
 
 /* Classe Guerreiro ****************************************************************************************************/
 
-int Guerreiro ::exibeHP()
+Guerreiro::Guerreiro(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility) : Player(HP, MP, manaForce, physDamage, physResist, manaResist, agility){
+    
+};
+
+/*int Guerreiro ::exibeHP()
 {
     return HP;
-};
+};*/
 
 int Guerreiro ::exibeMP()
 {
@@ -379,10 +383,14 @@ void Guerreiro ::usarFeitico(int *magicPoints, int pontosRequeridos)
 
 /* Classe Ladrão ****************************************************************************************************/
 
-int Ladrao ::exibeHP()
+Ladrao::Ladrao(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility) : Player(HP, MP, manaForce, physDamage, physResist, manaResist, agility){
+    
+};
+
+/*int Ladrao ::exibeHP()
 {
     return HP;
-};
+};*/
 
 int Ladrao ::exibeMP()
 {
@@ -435,10 +443,14 @@ void Ladrao ::usarFeitico(int *magicPoints, int pontosRequeridos)
 
 /* Classe Mago  ****************************************************************************************************/
 
-int Mago ::exibeHP()
+Mago::Mago(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility) : Player(HP, MP, manaForce, physDamage, physResist, manaResist, agility){
+    
+};
+
+/*int Mago ::exibeHP()
 {
     return HP;
-};
+};*/
 
 int Mago ::exibeMP()
 {
@@ -491,10 +503,14 @@ void Mago ::usarFeitico(int *magicPoints, int pontosRequeridos)
 
 /* Classe Paladino ****************************************************************************************************/
 
-int Paladino ::exibeHP()
+Paladino::Paladino(int HP, int MP, int manaForce, int physDamage, int physResist, int manaResist, int agility) : Player(HP, MP, manaForce, physDamage, physResist, manaResist, agility){
+    
+};
+
+/*int Paladino ::exibeHP()
 {
     return HP;
-};
+};*/
 
 int Paladino ::exibeMP()
 {
