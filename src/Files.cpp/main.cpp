@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Files.h/inumanos.h"
+#include "../Files.h/classes.h"
 using namespace std;
 
 int validaClasse(int resposta) {
@@ -37,7 +37,7 @@ void exibeHumanos() {
 }
 
 void exibeInumanos() {
-        cout << "\nClasse de Inumanos selecionada.\nEscolha seu Personagem!\n\n5 - Animal\n6 - Troll\n7 - Dragao\n8 - Zumbi\n\n0 - Voltar\n\n>> ";
+    cout << "\nClasse de Inumanos selecionada.\nEscolha seu Personagem!\n\n5 - Animal\n6 - Troll\n7 - Dragao\n8 - Zumbi\n\n0 - Voltar\n\n>> ";
 
 }
 
@@ -48,6 +48,8 @@ void exibeInumanos() {
 int main()
 {
     int optPlayer1, optPlayer2, flag;
+    Player *player1;
+    Player *player2;
 
     cout << "\n\nFala galera! Sejam bem-vindos ao KrystalZeep!\nBora pro fight?\nPlayer 1, escolha sua classe:\n";
     //inicio perguntas player 1
@@ -64,22 +66,22 @@ int main()
 
         } while(flag != 2);
 
-            if(optPlayer1 == 1) {
-                do {
-                    exibeHumanos();
-                    cin >>  optPlayer1;
-                    flag = validaHumano(optPlayer1);
+        if(optPlayer1 == 1) {
+            do {
+                exibeHumanos();
+                cin >>  optPlayer1;
+                flag = validaHumano(optPlayer1);
 
-                } while(flag != 0);
-            } else {
-                do {
-                    exibeInumanos();
-                    cin >> optPlayer1;
-                    flag = validaInumano(optPlayer1);
-                    
-                } while (flag != 0);
+            } while(flag != 0);
+        } else {
+            do {
+                exibeInumanos();
+                cin >> optPlayer1;
+                flag = validaInumano(optPlayer1);
                 
-            }
+            } while (flag != 0);
+            
+        }
 
     } while(optPlayer1 == 0); 
     //fim perguntas player 1
@@ -99,22 +101,22 @@ int main()
 
         } while(flag != 2);
 
-            if(optPlayer2 == 1) {
-                do {
-                    exibeHumanos();
-                    cin >>  optPlayer2;
-                    flag = validaHumano(optPlayer2);
+        if(optPlayer2 == 1) {
+            do {
+                exibeHumanos();
+                cin >>  optPlayer2;
+                flag = validaHumano(optPlayer2);
 
-                } while(flag != 0);
-            } else {
-                do {
-                    exibeInumanos();
-                    cin >> optPlayer2;
-                    flag = validaInumano(optPlayer2);
-                    
-                } while (flag != 0);
+            } while(flag != 0);
+        } else {
+            do {
+                exibeInumanos();
+                cin >> optPlayer2;
+                flag = validaInumano(optPlayer2);
                 
-            }
+            } while (flag != 0);
+            
+        }
 
     } while(optPlayer2 == 0); 
     //fim perguntas player 2
@@ -123,40 +125,53 @@ int main()
 
     //Player 1
     //Atualiza aqui com suas classes e numeros tiago
-
-   
-        
-
     if (optPlayer1 == 5) {
-        Animal *player1 = new Animal;
+       player1 = new Animal (3200, 30, 20, 80, 80, 20, 50);
+       cout << "\nStats Player 1: ";
+       player1->imprimeStatus();
+
     } else if (optPlayer1 == 6) {
-        Troll *player1 = new Troll;
+        player1 = new Troll (2800, 20, 20, 100, 80, 20, 20);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
+   
     } else if (optPlayer1 == 7) {
-        Dragao *player1 = new Dragao;
+        player1 = new Dragao(3000, 40, 20, 100, 50, 50, 30);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
+  
     } else if (optPlayer1 == 8) {
-        Zumbi *player1 = new Zumbi;
+        player1 = new Zumbi (2500, 20, 20, 40, 40, 80, 50);
+        cout << "\nStats Player 1: ";
+        player1->imprimeStatus();
     }
    
 
     //Player 2
     //mesmo esquema aqui tiago
+    //cout << player2->exibeHP();
     
+     if (optPlayer2 == 5) {
+        player2 = new Animal(3200, 30, 20, 80, 80, 20, 50);
+        cout << "\nStats Player 2: ";
+        player2->imprimeStatus();
 
-    if (optPlayer2 == 5) {
-        Animal *player2 = new Animal;
     } else if (optPlayer2 == 6) {
-        Troll *player2 = new Troll;
+        player2 = new Troll(2800, 20, 20, 100, 80, 20, 20);
+        cout << "\nStats Player 2: ";
+        player2->imprimeStatus();
+   
     } else if (optPlayer2 == 7) {
-        Dragao *player2 = new Dragao;
+        player2 = new Dragao(3000, 40, 20, 100, 50, 50, 30);
+        cout << "\nStats Player 2: ";
+        player2->imprimeStatus();
+  
     } else if (optPlayer2 == 8) {
-        Zumbi *player2 = new Zumbi;
-        player2->exibeHP();
+        player2 = new Zumbi (2500, 20, 20, 40, 40, 80, 50);
+        cout << "\nStats Player 2: ";
+        player2->imprimeStatus();
 
-      
-    }
-
-
-         
+    }      
     
    
     
