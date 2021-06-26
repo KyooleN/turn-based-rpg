@@ -594,9 +594,9 @@ int main()
     } while (vidaPlayer1 > 0 && vidaPlayer2 > 0);
 
     if(vencedor == 1) {
-        cout << "\n\n\n\n" << nomePlayer1 << "VOCE EH MUITO BRABO CARA PARABENS VC GANHOU BRO";
+        cout << "\n\n\n\n" << nomePlayer1 << " VOCE EH MUITO BRABO CARA PARABENS VOCE GANHOU BRO\n\n";
     } else {
-        cout << "\n\n\n\n" << nomePlayer2 << "VOCE EH MUITO BRABO CARA PARABENS VC GANHOU BRO";
+        cout << "\n\n\n\n" << nomePlayer2 << " VOCE EH MUITO BRABO CARA PARABENS VOCE GANHOU BRO\n\n";
     }
 }
 
