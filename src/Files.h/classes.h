@@ -19,5 +19,6 @@ int HP = 3200;
      int recebeDanoMagia(int danoTotal);
      int chanceEsquiva ();
      void imprimeStatus ();
+     int bul_khatos();
 
 };

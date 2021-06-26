@@ -84,3 +84,24 @@ int Player ::chanceEsquiva()
         return 1; //conseguiu escapar
     }
 };
+
+int Player ::bul_khatos() 
+{
+    int danoTotal = 0;
+    int chance = (rand() % 100) + 1;
+
+    if(chance <= 20) {//conseguiu a benção
+        danoTotal = (rand() % (900 - 500)) + 500;    
+        int critico = (rand() % 100) + 1;
+
+
+        if(critico <= 35) { //conseguiu dano critico
+        danoTotal += danoTotal * (1 + (this->physDamage/100)); 
+        cout << "\nCRITICO\n";
+        }
+   } else { //não conseguiu a benção
+       return -1;
+   }
+
+   return danoTotal;
+};
