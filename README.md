@@ -1,13 +1,23 @@
 # KrystalGem
 
-Salve família! Esse jogo é fruto de um trabalho da faculdade da matéria de Algorítmos e Estruturas de dados. Se trata de fazer uma mecânica de um RPG de turno. Esperamos que gostem! 
+Salve família! Esse jogo é fruto de um trabalho da faculdade da matéria de Algorítmos e Estruturas de dados. Se trata de fazer a mecânica de um RPG de turno. Esperamos que gostem! 
 
 # Como rodar o jogo?
 
- Clone o repositório
+Abra o terminal
+
+ Digite:
  
- Digite ` g++ *cpp -o game `
+ `git clone https://github.com/KyooleN/turn-based-rpg.git `
  
- Digite ` ./game  `
+ `cd master`
+ 
+ `cd src`
+ 
+ `cd Files.cpp`
+ 
+  ` g++ *cpp -o game `
+ 
+ ` ./game  `
  
  Divirta-se.
