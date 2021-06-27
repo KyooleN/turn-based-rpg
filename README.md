@@ -1,6 +1,6 @@
 # KrystalGem
 
-Salve família! Esse jogo é fruto de um trabalho da faculdade da matéria de Algorítmos e Estruturas de dados. Se trata de fazer a mecânica de um RPG de turno. Esperamos que gostem! 
+Salve família! Esse jogo é fruto de um trabalho da faculdade da matéria de Algorítmos e Estruturas de Dados, do curso de Ciências da Computação . Se trata de fazer a mecânica de um RPG de turno. Esperamos que gostem! 
 
 # Como rodar o jogo?
 
