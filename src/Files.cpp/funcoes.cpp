@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Files.h/classes.h"
+#include "../Files.h/funcoes.h"
 #include <cstdlib>
 
 using namespace std;
@@ -104,4 +104,9 @@ int Player ::bul_khatos()
    }
 
    return danoTotal;
+};
+
+void Player ::recuperaMana()
+{
+    this->MP += 10;
 };

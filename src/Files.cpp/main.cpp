@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../Files.h/classes.h"
+#include <string>
+#include "../Files.h/funcoes.h"
 #include <string>
 using namespace std;
 
@@ -42,9 +43,9 @@ void exibeInumanos() {
 
 }
 
-void exibeSkillsPlayer1 (int optPlayer1, string nomePlayer1) {
+void exibeSkillsPlayer1 (int optPlayer1) {
 
-    cout << "\n\n" << nomePlayer1 << ", seu turno!\n\n";
+    cout << "\n\nPlayer 1, seu turno!\n\n";
 
     if(optPlayer1 == 1) { //guerreiro
         cout << "1 - Ataque Fisico\n2 - Trocar a arma\n9 - Tempestade\n\n>>  ";
@@ -65,9 +66,9 @@ void exibeSkillsPlayer1 (int optPlayer1, string nomePlayer1) {
     }
 }
 
-void exibeSkillsPlayer2 (int optPlayer2, string nomePlayer2) {
+void exibeSkillsPlayer2 (int optPlayer2) {
 
-    cout << "\n\n" << nomePlayer2<< ", seu turno!\n\n";
+    cout << "\n\nPlayer 2, seu turno!\n\n";
 
     if(optPlayer2 == 1) { //guerreiro
         cout << "1 - Ataque Fisico\n2 - Trocar a arma\n9 - Tempestade\n\n>>  ";
@@ -88,7 +89,7 @@ void exibeSkillsPlayer2 (int optPlayer2, string nomePlayer2) {
     }
 }
 
-int validaAcaoPlayer1 (int optPlayer1, string nome) {
+int validaAcaoPlayer1 (int optPlayer1) {
     
     int acao, flag;
 
@@ -107,7 +108,7 @@ int validaAcaoPlayer1 (int optPlayer1, string nome) {
         )   {
             cout << "\nAcao invalida! Voce nao tem essa habilidade!\n";
             flag = 1;
-            exibeSkillsPlayer1(optPlayer1, nome);
+            exibeSkillsPlayer1(optPlayer1);
         } 
 
     } while (flag != 0);
@@ -116,7 +117,7 @@ int validaAcaoPlayer1 (int optPlayer1, string nome) {
         
 }
 
-int validaAcaoPlayer2 (int optPlayer2, string nome) {
+int validaAcaoPlayer2 (int optPlayer2) {
     
     int acao, flag;
 
@@ -135,7 +136,7 @@ int validaAcaoPlayer2 (int optPlayer2, string nome) {
         )   {
             cout << "\nAcao invalida! Voce nao tem essa habilidade!\n";
             flag = 1;
-            exibeSkillsPlayer2(optPlayer2, nome);
+            exibeSkillsPlayer2(optPlayer2);
         } 
 
     } while (flag != 0);
@@ -186,7 +187,7 @@ void exibeArmasPlayer2 (int optPlayer2) {
     }
 }
 
-int trocArmaPlayer1 (int optPlayer1, int danos[], string nome) {
+int trocArmaPlayer1 (int optPlayer1, int danos[]) {
     
     int acao, flag;
 
@@ -205,7 +206,7 @@ int trocArmaPlayer1 (int optPlayer1, int danos[], string nome) {
         )   {
             cout << "\nAcao invalida! Voce nao tem essa habilidade!\n";
             flag = 1;
-            exibeSkillsPlayer1(optPlayer1, nome);
+            exibeSkillsPlayer1(optPlayer1);
         } 
 
     } while (flag != 0);
@@ -230,7 +231,7 @@ int trocArmaPlayer1 (int optPlayer1, int danos[], string nome) {
         
 }
 
-int trocArmaPlayer2 (int optPlayer2, int danos[], string nome) {
+int trocArmaPlayer2 (int optPlayer2, int danos[]) {
     
     int acao, flag;
 
@@ -249,7 +250,7 @@ int trocArmaPlayer2 (int optPlayer2, int danos[], string nome) {
         )   {
             cout << "\nAcao invalida! Voce nao tem essa habilidade!\n";
             flag = 1;
-            exibeSkillsPlayer1(optPlayer2, nome);
+            exibeSkillsPlayer1(optPlayer2);
         } 
 
     } while (flag != 0);
@@ -280,13 +281,11 @@ int main()
 {
     int optPlayer1, optPlayer2, flag, vencedor;
     int armaPlayer1[2], armaPlayer2[2];
-    string nomePlayer1, nomePlayer2;
     Player *player1;
     Player *player2;
 
-    cout << "\n\nFala galera! Sejam bem-vindos ao KrystalZeep!\nBora pro fight?\nAntes de mais nada, vamos nos conhecer. Player 1, qual seu nome?\n>> ";
-    cin >> nomePlayer1;
-    cout << "\nPrazer em te conhecer meu caro " << nomePlayer1 << "!\nEscolha sua classe:\n\n";
+    cout << "\n\nFala galera! Sejam bem-vindos ao KrystalGem!\nBora pro fight?\n";
+    cout << "\nPlayer 1, escolha sua classe:\n\n";
     //inicio perguntas player 1
     do{
         do {
@@ -315,15 +314,12 @@ int main()
                 validaInumano(optPlayer1);
                 
            
-            
         }
 
     } while(optPlayer1 == 0); 
     //fim perguntas player 1
 
-    cout << "\n\nNao vamos esquecer do nosso querido e amado PLayer 2 ne?! Conta seu nome pra gente!\n\n";
-    cin >> nomePlayer2;
-    cout << "\nNome bonito em " << nomePlayer2 << "? Escolhe sua classe ai pra gente jogar logo!\n";
+    cout << "\n\nSua vez Player 2! Escolha sua classe!\n\n";
     //inicio perguntas player 2
     do{
         do {
@@ -449,11 +445,13 @@ int main()
     //Jogo começou
 
     do {
-        int dano, esquiva = 0;
-        cout << "\n\nStats " << nomePlayer1 << ":\nHP: "<< player1->exibeHP() <<  "\nMP: " << player1->exibeMP();
+        int dano = 0, esquiva = 0, danoCausado;
+        int escolhaPlayer1 = 0, escolhaPlayer2 = 0;
+
+        cout << "\n\nStats Player 1:\nHP: "<< player1->exibeHP() <<  "\nMP: " << player1->exibeMP();
         cout << "\nDano da arma: " << armaPlayer1[0] << "-" << armaPlayer1[1] << "\n";
 
-        cout << "\n\nStats " << nomePlayer2 << ":\nHP: "<< player2->exibeHP() <<  "\nMP: " << player2->exibeMP();
+        cout << "\n\nStats Player 2:\nHP: "<< player2->exibeHP() <<  "\nMP: " << player2->exibeMP();
         cout << "\nDano da arma: " << armaPlayer2[0] << "-" << armaPlayer2[1] << "\n";
         
 
@@ -461,56 +459,73 @@ int main()
         int danoBulKhatos = player1->bul_khatos();
 
         if(danoBulKhatos != -1) { //caso tenha conseguido a benção
-        cout << "\n\n"<< nomePlayer1 <<", A BENCAO DE BUL KHATOS FOI CONCEDIDA!\n\n";
+        cout << "\n\n Player 1, A BENCAO DE BUL KHATOS FOI CONCEDIDA!\n\n";
             esquiva = player2->chanceEsquiva();
 
             if(esquiva != 1) {//nao escapou
-            player2->recebeDanoFisico(danoBulKhatos);
+            danoCausado = player2->recebeDanoFisico(danoBulKhatos);
+            cout << "\nDANO MONSTRO CAUSADO: " << danoCausado;
             } else {
-                cout << "\nDESVIOU JOGA MUITO\n";
+                cout << "\nPLAYER 2 DESVIOU DA CHINELADA JOGA MUITO\n";
             }
         
         } else { //caso nao tenha conseguido a benção
 
-        exibeSkillsPlayer1(optPlayer1, nomePlayer1);
-        int escolhaPlayer1 =  validaAcaoPlayer1(optPlayer1, nomePlayer1);
+        exibeSkillsPlayer1(optPlayer1);
+        escolhaPlayer1 =  validaAcaoPlayer1(optPlayer1);
 
             if (escolhaPlayer1 == 1){
                 dano = player1->executaDanoFisico(armaPlayer1[0], armaPlayer1[1]);
+                cout << "\n\nATAQUE FISICO\n\n";
                 esquiva = player2->chanceEsquiva();
             }else if (escolhaPlayer1 == 2){
                 exibeArmasPlayer1(optPlayer1);
-                trocArmaPlayer1(optPlayer1, armaPlayer1, nomePlayer1); //Altera os valores do dano
+                trocArmaPlayer1(optPlayer1, armaPlayer1); //Altera os valores do dano
             }else if(escolhaPlayer1 == 3) {
-                    player1->executaDanoMagico(-200, 12); 
+                cout << "\n\nPocao de vida!\n\n";
+                player1->executaDanoMagico(-200, 12); 
             } else if (escolhaPlayer1 == 4) {
                 dano = player1->executaDanoMagico(400, 12);
+                cout << "\n\nHalito de fogo!\n\n";
                 esquiva = player2->chanceEsquiva();
             } else if (escolhaPlayer1 == 5) {
                 dano = player1->executaDanoMagico(360, 14);
+                cout << "\n\nBIO\n\n";
                 esquiva = player2->chanceEsquiva();
             } else if (escolhaPlayer1 == 6) {
                     player1->executaDanoMagico(-400, 16);
+                    cout << "\n\nCURA!\n\n";
             } else if (escolhaPlayer1 == 7) {
                 dano = player1->executaDanoMagico(320, 14);
+                cout << "\n\nFLAMA GELADA!\n\n";
                 esquiva = player2->chanceEsquiva();
             } else if (escolhaPlayer1 == 8) {
                 dano = player1->executaDanoMagico(280, 12);
+                cout << "\n\nINTOXICACAO\n\n";
                 esquiva = player2->chanceEsquiva();
             } else if (escolhaPlayer1 == 9) {
                 dano = player1->executaDanoMagico(200, 12);
+                cout << "\n\nTEMPESTADE!\n\n";
                 esquiva = player2->chanceEsquiva();
             }
 
+            
+
             if(esquiva != 1) { //caso nao tenha escapado
                 if (escolhaPlayer1 == 1){
-                    player2->recebeDanoFisico(dano);
-                }else {
-                    player2->recebeDanoMagia(dano);
-                }               
+                    danoCausado = player2->recebeDanoFisico(dano);
+                    cout << "DANO CAUSADO: " << danoCausado;
+                }else if(escolhaPlayer1 != 3 && escolhaPlayer1 != 6){
+                    danoCausado = player2->recebeDanoMagia(dano);
+                    cout << "DANO CAUSADO: " << danoCausado;
+                }                       
             }
             
-        }
+        } //Fim bul Khatos
+
+        if((escolhaPlayer1 == 1 || escolhaPlayer1 == 2) || danoBulKhatos != -1) {
+                player1->recuperaMana();
+            }
 
         vidaPlayer2 = player2->exibeHP();
 
@@ -521,10 +536,10 @@ int main()
 
        //player 2
 
-       cout << "\n\nStats " << nomePlayer1 << ":\nHP: "<< player1->exibeHP() <<  "\nMP: " << player1->exibeMP();
+       cout << "\n\nStats Player 1:\nHP: "<< player1->exibeHP() <<  "\nMP: " << player1->exibeMP();
         cout << "\nDano da arma: " << armaPlayer1[0] << "-" << armaPlayer1[1] << "\n";
 
-        cout << "\n\nStats " << nomePlayer2 << ":\nHP: "<< player2->exibeHP() <<  "\nMP: " << player2->exibeMP();
+        cout << "\n\nStats Player 2:\nHP: "<< player2->exibeHP() <<  "\nMP: " << player2->exibeMP();
         cout << "\nDano da arma: " << armaPlayer2[0] << "-" << armaPlayer2[1] << "\n";
         
 
@@ -532,57 +547,74 @@ int main()
         danoBulKhatos = player2->bul_khatos();
 
         if(danoBulKhatos != -1) { //caso tenha conseguido a benção
-        cout << "\n\n" <<nomePlayer2<< ", A BENCAO DE BUL KHATOS FOI CONCEDIDA!\n\n";
+        cout << "\n\nPlayer 2, A BENCAO DE BUL KHATOS FOI CONCEDIDA!\n\n";
             esquiva = player1->chanceEsquiva();
 
             if(esquiva != 1) {//nao escapou
-            player1->recebeDanoFisico(danoBulKhatos);
+            danoCausado = player1->recebeDanoFisico(danoBulKhatos);
+            cout << "\nDANO MONSTRO CAUSADO: " << danoCausado;
             } else {
-                cout << "\nDESVIOU JOGA MUITO\n";
+                cout << "\nPLAYER 1 DESVIOU JOGA MUITO\n";
             }
         
         } else {
 
-            exibeSkillsPlayer2(optPlayer2, nomePlayer2);
-            int escolhaPlayer2 = validaAcaoPlayer2(optPlayer2, nomePlayer2);
+            exibeSkillsPlayer2(optPlayer2);
+            escolhaPlayer2 = validaAcaoPlayer2(optPlayer2);
 
             if (escolhaPlayer2 == 1){
                 dano = player2->executaDanoFisico(armaPlayer2[0], armaPlayer2[1]);
+                cout << "\n\nATAQUE FISICO\n\n";
                 esquiva = player1->chanceEsquiva();
             }else if (escolhaPlayer2 == 2){
                 exibeArmasPlayer1(optPlayer2);
-                trocArmaPlayer2(optPlayer2, armaPlayer2, nomePlayer2); //Altera os valores do dano
+                trocArmaPlayer2(optPlayer2, armaPlayer2); //Altera os valores do dano
             }else if(escolhaPlayer2 == 3) {
-                    player2->executaDanoMagico(-200, 12); 
+                    player2->executaDanoMagico(-200, 12);
+                cout << "\n\nPocao de vida!\n\n";
             } else if (escolhaPlayer2 == 4) {
                 dano = player2->executaDanoMagico(400, 12);
+                cout << "\n\nHalito de fogo!\n\n";
                 esquiva = player1->chanceEsquiva();
             } else if (escolhaPlayer2 == 5) {
                 dano = player2->executaDanoMagico(360, 14);
+                cout << "\n\nBIO\n\n";
                 esquiva = player1->chanceEsquiva();
             } else if (escolhaPlayer2 == 6) {
                     player2->executaDanoMagico(-400, 16);
+                    cout << "\n\nCURA!\n\n";
             } else if (escolhaPlayer2 == 7) {
                 dano = player2->executaDanoMagico(320, 14);
+                cout << "\n\nFLAMA GELADA!\n\n";
                 esquiva = player1->chanceEsquiva();
             } else if (escolhaPlayer2 == 8) {
                 dano = player2->executaDanoMagico(280, 12);
+                cout << "\n\nINTOXICACAO\n\n";
                 esquiva = player1->chanceEsquiva();
             } else if (escolhaPlayer2 == 9) {
                 dano = player2->executaDanoMagico(200, 12);
+                cout << "\n\nTEMPESTADE!\n\n";
                 esquiva = player1->chanceEsquiva();
             }
+
+            
             
 
             if(esquiva != 1) { //caso nao tenha escapado
                 if (escolhaPlayer2 == 1){
-                    player1->recebeDanoFisico(dano);
-                }else {
-                    player1->recebeDanoMagia(dano);
+                    danoCausado = player1->recebeDanoFisico(dano);
+                    cout << "DANO CAUSADO: " << danoCausado;
+                }else if(escolhaPlayer2 != 3 && escolhaPlayer2 != 6){
+                    danoCausado = player1->recebeDanoMagia(dano);
+                    cout << "DANO CAUSADO: " << danoCausado;
                 }               
             }
 
         } // fim bul khatos
+
+        if((escolhaPlayer2 == 1 || escolhaPlayer2 == 2) || danoBulKhatos != -1) {
+                player2->recuperaMana();
+            }
 
         vidaPlayer1 = player1->exibeHP();
 
@@ -594,9 +626,9 @@ int main()
     } while (vidaPlayer1 > 0 && vidaPlayer2 > 0);
 
     if(vencedor == 1) {
-        cout << "\n\n\n\n" << nomePlayer1 << " VOCE EH MUITO BRABO CARA PARABENS VOCE GANHOU BRO\n\n";
+        cout << "\n\n\n\nVOCE EH MUITO BRABO Player 1! PARABENS VOCE GANHOU BRO\n\n";
     } else {
-        cout << "\n\n\n\n" << nomePlayer2 << " VOCE EH MUITO BRABO CARA PARABENS VOCE GANHOU BRO\n\n";
+        cout << "\n\n\n\nVOCE EH MUITO BRABO Player 2! PARABENS VOCE GANHOU BRO\n\n";
     }
 }
 
